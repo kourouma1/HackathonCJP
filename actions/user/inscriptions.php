@@ -33,21 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Le mot de passe doit contenir au moins 8 caractères";
     }
 
-    // Création d'une instance de User
-    $user = new User([
-        'full_name' => $fullName,
-        'email' => $email,
-        'password_hash' => password_hash($password, PASSWORD_DEFAULT),
-        'phone_number' => $phone
-    ]);
-
-    // Validation avec les méthodes du modèle
-    if (!$user->isValidEmail()) {
-        $errors[] = "L'adresse email n'est pas valide";
-    }
-
-    if (!$user->isValidPhoneNumber()) {
-        $errors[] = "Le numéro de téléphone n'est pas valide";
+    // Vérification de l'unicité de l'email
+    $stmt = $pdo->prepare("SELECT email FROM Users WHERE email = ?");
+    $stmt->execute([$email]);
+    if ($stmt->fetch()) {
+        $errors[] = "Cet email est déjà utilisé";
     }
 
     // Si pas d'erreurs, on procède à l'inscription
@@ -64,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } catch (Exception $e) {
             $_SESSION['error'] = "Une erreur est survenue lors de l'inscription";
-            //header('Location: ../../pages/inscription.php');
+            // Décommenter cette ligne pour assurer la redirection
+            header('Location: ../../pages/inscription.php');
             exit();
         }
     } else {

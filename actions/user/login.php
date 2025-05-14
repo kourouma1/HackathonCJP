@@ -21,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validation des identifiants
     $loginResult = User::verifyLoginCredentials($pdo, $email, $password);
     
-    exit();
+    // Supprimer l'exit() mal placé
+    // exit();
 
     if ($loginResult['status']) {
         // Connexion réussie
@@ -34,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirection selon le rôle
         if ($loginResult['user']->getRole() === 'admin') {
-            header('Location: ../../admin/dashboard.php');
+            header('Location: ../../pages/admin/dashbord.php');
         } else {
-            header('Location: ../../pages/index.php');
+            header('Location: ../../pages/espaceCitoyen.php');
         }
         exit();
     } else {
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['old_input'] = [
             'email' => $email
         ];
+        // Correction de la redirection
         header('Location: ../../pages/login.php');
         exit();
     }

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,8 +29,8 @@
   <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-green-600">SignalGuinée</h1>
     <div class="flex items-center space-x-4">
-      <span class="text-sm font-medium">Bienvenue, Maïck</span>
-      <a href="login.php" class="text-sm text-red-500 hover:underline">Déconnexion</a>
+      <span class="text-sm font-medium">Bienvenue, <?php echo $_SESSION['user']['full_name'] ?></span>
+      <a href="../actions/user/deconnexion.php" class="text-sm text-red-500 hover:underline">Déconnexion</a>
     </div>
   </header>
 

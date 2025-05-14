@@ -109,10 +109,12 @@ session_start();
           </p>
         </div>
         
-        <button class="btn-hover pulse-btn bg-green-600 text-white font-semibold w-full py-3 px-4 rounded-lg mb-6 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-3s">
-          Renvoyer le lien de vérification
-          <span class="countdown ml-2 inline-block">(60s)</span>
-        </button>
+        <form method="POST" action="../actions/user/sendVerificationEmail.php">
+          <button type="submit" class="btn-hover pulse-btn bg-green-600 text-white font-semibold w-full py-3 px-4 rounded-lg mb-6 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-3s">
+            Renvoyer le lien de vérification
+            <span class="countdown ml-2 inline-block">(60s)</span>
+          </button>
+        </form>
         
         <div class="text-sm text-gray-500 animate__animated animate__fadeIn animate__delay-4s">
           Vous n'avez pas reçu l'email? 
