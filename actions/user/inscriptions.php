@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../models/User.php');
+require_once __DIR__ . '/../../models/User.php';
 
 // Configuration de la base de données
 try {
@@ -43,7 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si pas d'erreurs, on procède à l'inscription
     if (empty($errors)) {
         try {
-            if ($user->create($pdo)) {
+            $user = new User([
+                'full_name' => $_POST['full_name'],
+                'email' => $_POST['email'],
+                'password_hash' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                'role' => 'citizen'
+            ]);
+            if ($user instanceof User) {
+                $user->create($pdo);
+            } else {
+                die("Erreur : Impossible de créer l'utilisateur");
+            }
                 $_SESSION['success'] = "Compte créé avec succès ! Vous pouvez maintenant vous connecter.";
                 header('Location: ../../pages/login.php');
                 exit();
