@@ -24,29 +24,7 @@ $stmt = $pdo->query($query);
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <style>
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-        }
-        .sidebar {
-            background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);
-            border-right: 1px solid #e2e8f0;
-            box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .report-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .report-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.15);
-        }
-    </style>
+    <link rel="stylesheet" href="../../assets/css/signalement.css">
 </head>
 <body class="animate__animated animate__fadeIn">
     <div class="dashboard-grid">
@@ -106,16 +84,6 @@ $stmt = $pdo->query($query);
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animation des cartes signalement
-            const reportCards = document.querySelectorAll('.report-card');
-            reportCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate__animated', 'animate__fadeInUp');
-                }, index * 200);
-            });
-        });
-    </script>
+    <script src="../../assets/js/signalement.js"></script>
 </body>
 </html>

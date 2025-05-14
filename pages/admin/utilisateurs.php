@@ -116,53 +116,51 @@ $stmt = $pdo->query($query);
 
     <!-- Modal -->
     <div id="userModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg w-full max-w-md">
+        <div class="bg-white rounded-lg w-full max-w-md shadow-xl">
             <div class="p-6">
-                <h3 class="text-lg font-semibold mb-4" id="modalTitle">Ajouter un utilisateur</h3>
-                <form id="userForm">
-                    <div class="space-y-4">
-                        <input type="hidden" id="userId" name="userId">
-                        <div>
-                            <label for="fullName" class="block text-sm font-medium text-gray-700">Nom complet</label>
-                            <input type="text" id="fullName" name="fullName" required
-                                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" required
-                                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        </div>
-                        <div>
-                            <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
-                            <input type="tel" id="phoneNumber" name="phoneNumber"
-                                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        </div>
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
-                            <input type="password" id="password" name="password"
-                                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        </div>
-                        <div>
-                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword"
-                                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        </div>
-                        <div>
-                            <label for="role" class="block text-sm font-medium text-gray-700">Rôle</label>
-                            <select id="role" name="role" required
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <option value="citizen">Citoyen</option>
-                                <option value="admin">Administrateur</option>
-                            </select>
-                        </div>
+                <h3 class="text-lg font-semibold mb-6 text-gray-800" id="modalTitle">Ajouter un utilisateur</h3>
+                <form id="userForm" class="space-y-5">
+                    <input type="hidden" id="userId" name="userId">
+                    <div class="form-group">
+                        <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                        <input type="text" id="fullName" name="fullName" required
+                               class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 placeholder-gray-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 placeholder-gray-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">Numéro de téléphone</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber"
+                               class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 placeholder-gray-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+                        <input type="password" id="password" name="password"
+                               class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 placeholder-gray-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirmer le mot de passe</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                               class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 placeholder-gray-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Rôle</label>
+                        <select id="role" name="role" required
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition duration-200 appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTcgMTUgNSA1IDUtNSIvPjwvc3ZnPg==')] bg-no-repeat bg-[center_right_1rem]">
+                            <option value="citizen">Citoyen</option>
+                            <option value="admin">Administrateur</option>
+                        </select>
                     </div>
                     <div class="mt-6 flex justify-end space-x-4">
                         <button type="button" onclick="closeUserModal()"
-                                class="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200">
+                                class="px-6 py-2.5 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-200">
                             Annuler
                         </button>
                         <button type="submit"
-                                class="px-4 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">
+                                class="px-6 py-2.5 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition duration-200">
                             Enregistrer
                         </button>
                     </div>
