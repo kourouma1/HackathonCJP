@@ -1,0 +1,94 @@
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    }
+    
+    .register-container {
+      perspective: 1000px;
+    }
+    
+    .register-form {
+      transform-style: preserve-3d;
+      animation: fadeInLeft 0.8s ease-out;
+    }
+    
+    .form-input {
+      transition: all 0.3s ease;
+      transform-origin: left;
+    }
+    
+    .form-input:focus {
+      transform: scaleX(1.02);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .social-btn {
+      transition: all 0.3s ease;
+      transform: translateZ(0);
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-3px) translateZ(10px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      transition: all 0.3s ease;
+      transform: translateZ(0);
+      box-shadow: 0 4px 6px rgba(5, 150, 105, 0.3);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px) translateZ(10px);
+      box-shadow: 0 10px 15px rgba(5, 150, 105, 0.4);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+    
+    .wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 150px;
+    }
+    
+    .wave .shape-fill {
+      fill: #ffffff;
+    }
+    
+    .password-strength {
+      height: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .password-toggle {
+      transition: all 0.3s ease;
+    }
+    
+    .password-toggle:hover {
+      transform: scale(1.1);
+    }
+ 
